@@ -1,13 +1,5 @@
 #!/bin/bash
 
-should_remove_previous_version() {
-  if [[ $(terraform -version) ]]; then
-    echo "Removing previous terraform..."
-    sudo rm /bin/terraform
-  fi
-}
-
-should_remove_previous_version
 echo "Downloading Terraform..."
 wget https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
 echo "Unziping..."
