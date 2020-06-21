@@ -12,7 +12,7 @@ remove_previous_version()
 
 has_unzip_package()
 {
-    unzip -version
+    dpkg -s unzip
     if [ $? -eq 0] ; then
         echo "Unzip package already exist..."
     else
