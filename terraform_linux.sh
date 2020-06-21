@@ -5,7 +5,7 @@ TERRAFORM=/bin/terraform
 remove_previous_version()
 {
     if test -f "$TERRAFORM"; then
-        echo "Removing previous version"
+        echo "Removing previous version..."
         sudo rm "$TERRAFORM"
     fi
 }
