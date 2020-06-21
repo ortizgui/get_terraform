@@ -16,8 +16,9 @@ has_unzip_package()
     if [ $? -eq 0] ; then
         echo "Unzip package already exist..."
     else
+        echo "Unzip package not installed..."
         sudo apt-get update
-        sudo apt-get install unzip
+        sudo apt-get install zip unzip
     fi
 }
 
