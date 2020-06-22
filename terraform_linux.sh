@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TERRAFORM=/bin/terraform
+TERRAFORM=/usr/local/bin/terraform
 
 remove_previous_version()
 {
@@ -10,26 +10,13 @@ remove_previous_version()
     fi
 }
 
-has_unzip_package()
-{
-    dpkg -s unzip
-    if [ $? -eq 0] ; then
-        echo "Unzip package already exist..."
-    else
-        echo "Unzip package not installed..."
-        sudo apt-get update
-        sudo apt-get install zip unzip
-    fi
-}
-
 remove_previous_version
 echo "Downloading Terraform..."
 wget https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
 echo "Unziping..."
-has_unzip_package
 unzip terraform_0.12.26_linux_amd64.zip
-echo "Moving to /bin"
-sudo mv terraform /bin
+echo "Moving to /usr/local/bin"
+sudo mv terraform /usr/local/bin
 echo "Cleaning files.."
 rm terraform_0.12.26_linux_amd64.zip
 echo "All done!"
